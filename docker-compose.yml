@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    container_name: postgrestodo
+    restart: always
+    environment:
+      POSTGRES_DB: tododb
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: 123
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db:/postgres
