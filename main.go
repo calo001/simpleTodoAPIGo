@@ -19,7 +19,7 @@ var key = "my_secret_key_8F6E2P"
 func init() {
 	var err error
 	//db, err = gorm.Open("postgres", "host=localhost port=5432 user=admin dbname=tododb password=123  sslmode=disable")
-	db, err = gorm.Open("postgres", "host=postgres.render.com port=5432 user=admin dbname=tododb password=tQGGa3UsRV sslmode=disable")
+	db, err = gorm.Open("postgres", "host=postgres.render.com port=5432 user=admin dbname=tododb password=tQGGa3UsRV")
 
 	if err != nil {
 		panic(err.Error())
