@@ -2,7 +2,6 @@ package main
 
 import (
 	"github.com/appleboy/gin-jwt"
-	jwt2 "github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
@@ -167,17 +166,7 @@ func registerEndPoint(c *gin.Context) {
 
 	db.Save(&user)
 
-	token := jwt2.NewWithClaims(jwt2.SigningMethodHS256, jwt2.MapClaims{
-		identityKey: user.ID,
-	})
-
-	tokenString, err := token.SignedString([]byte(key))
-
-	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"message": err.Error()})
-	}
-
-	c.JSON(http.StatusCreated, gin.H{"message": "User created successfully!", "token": tokenString})
+	c.JSON(http.StatusCreated, gin.H{"message": "User created successfully!"})
 }
 
 func createTodo(c *gin.Context) {
