@@ -15,10 +15,12 @@ func RegisterEndPoint(c *gin.Context) {
 		return
 	}
 
-	var userCheck model.Task
-	config.GetDB().First(&userCheck, "id = ?", user.Username)
+	var userCheck model.User
+	config.GetDB().First(&userCheck, "username = ?", user.Username)
+	//.Where("username = ?", user.Username).First(userCheck)
+	//.First(&userCheck, "username = ?", user.Username)
 
-	if userCheck.ID >= 0 {
+	if userCheck.ID > 0 {
 		c.JSON(http.StatusConflict, gin.H{"message": "User already exists"})
 		return
 	}
