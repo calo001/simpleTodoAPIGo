@@ -17,8 +17,6 @@ func RegisterEndPoint(c *gin.Context) {
 
 	var userCheck model.User
 	config.GetDB().First(&userCheck, "username = ?", user.Username)
-	//.Where("username = ?", user.Username).First(userCheck)
-	//.First(&userCheck, "username = ?", user.Username)
 
 	if userCheck.ID > 0 {
 		c.JSON(http.StatusConflict, gin.H{"message": "User already exists"})
@@ -118,7 +116,10 @@ func UpdateTask(c *gin.Context) {
 
 	config.GetDB().Model(&todo).Update("title", newTodo.Title)
 	config.GetDB().Model(&todo).Update("description", newTodo.Description)
-	c.JSON(http.StatusOK, gin.H{"message": "Task updated successfully!"})
+
+	config.GetDB().First(&todo, todoID)
+
+	c.JSON(http.StatusOK, gin.H{"message": "Task updated successfully!", "task": todo})
 }
 
 func DeleteTask(c *gin.Context) {
@@ -138,7 +139,7 @@ func DeleteTask(c *gin.Context) {
 	}
 
 	config.GetDB().Delete(&todo)
-	c.JSON(http.StatusOK, gin.H{"message": "Task deleted successfully!"})
+	c.JSON(http.StatusOK, gin.H{"message": "Task deleted successfully!", "task": todo})
 }
 
 
