@@ -1,0 +1,127 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"checksumSHA1": "u0Ikw6xsKjUHLxI+1OdODGG9yPg=",
+			"path": "github.com/appleboy/gin-jwt",
+			"revision": "8135d5fe23da9021d7dceeee4d60e41b3a66a46c",
+			"revisionTime": "2019-06-07T17:47:02Z"
+		},
+		{
+			"checksumSHA1": "P6u6fDWwSfRL2Bc6uhZ9kcoPsek=",
+			"path": "github.com/dgrijalva/jwt-go",
+			"revision": "5e25c22bd5d6de03265bbe5462dcd162f85046f6",
+			"revisionTime": "2019-06-20T18:01:02Z"
+		},
+		{
+			"checksumSHA1": "qlEzrgKgIkh7y0ePm9BNo1cNdXo=",
+			"path": "github.com/gin-contrib/sse",
+			"revision": "54d8467d122d380a14768b6b4e5cd7ca4755938f",
+			"revisionTime": "2019-06-02T15:02:53Z"
+		},
+		{
+			"checksumSHA1": "v5CL4tKQepWgXKGnhYTMiJ6SSQc=",
+			"path": "github.com/gin-gonic/gin",
+			"revision": "e602d524cccad90261e10bbb5ca41e9a81e467d4",
+			"revisionTime": "2019-07-03T23:57:52Z"
+		},
+		{
+			"checksumSHA1": "KV3eqfd5g1kQ6xUyv6tdan2Jgmo=",
+			"path": "github.com/gin-gonic/gin/binding",
+			"revision": "e602d524cccad90261e10bbb5ca41e9a81e467d4",
+			"revisionTime": "2019-07-03T23:57:52Z"
+		},
+		{
+			"checksumSHA1": "rST0S8cuVbM57VmJhWXhKNUkKTc=",
+			"path": "github.com/gin-gonic/gin/internal/json",
+			"revision": "e602d524cccad90261e10bbb5ca41e9a81e467d4",
+			"revisionTime": "2019-07-03T23:57:52Z"
+		},
+		{
+			"checksumSHA1": "4XLWNQHHCyHJCCROC4UXSn7U1OM=",
+			"path": "github.com/gin-gonic/gin/render",
+			"revision": "e602d524cccad90261e10bbb5ca41e9a81e467d4",
+			"revisionTime": "2019-07-03T23:57:52Z"
+		},
+		{
+			"checksumSHA1": "CGj8VcI/CpzxaNqlqpEVM7qElD4=",
+			"path": "github.com/golang/protobuf/proto",
+			"revision": "6c65a5562fc06764971b7c5d05c76c75e84bdbf7",
+			"revisionTime": "2019-07-01T18:22:01Z"
+		},
+		{
+			"checksumSHA1": "YzIVWHj5vDlCp3A8Zy0vhCn4zZ0=",
+			"path": "github.com/jinzhu/gorm",
+			"revision": "836fb2c19d84dac7b0272958dfb9af7cf0d0ade4",
+			"revisionTime": "2019-06-30T07:50:19Z"
+		},
+		{
+			"checksumSHA1": "0Pry12nZ6UQBd1iXEtszySSfFpI=",
+			"path": "github.com/jinzhu/gorm/dialects/postgres",
+			"revision": "836fb2c19d84dac7b0272958dfb9af7cf0d0ade4",
+			"revisionTime": "2019-06-30T07:50:19Z"
+		},
+		{
+			"checksumSHA1": "iqeSAF7imnVsW+iqLqf6kkYn1VU=",
+			"path": "github.com/jinzhu/inflection",
+			"revision": "f5c5f50e6090ae76a29240b61ae2a90dd810112e",
+			"revisionTime": "2019-06-03T04:28:36Z"
+		},
+		{
+			"checksumSHA1": "F6mCaMfANCOCP8pLnk94HmRyVpg=",
+			"path": "github.com/lib/pq",
+			"revision": "2ff3cb3adc01768e0a552b3a02575a6df38a9bea",
+			"revisionTime": "2019-05-07T19:18:18Z"
+		},
+		{
+			"checksumSHA1": "EnMmNGgpDa5sNw0Zs5RhvNDcP2g=",
+			"path": "github.com/lib/pq/hstore",
+			"revision": "2ff3cb3adc01768e0a552b3a02575a6df38a9bea",
+			"revisionTime": "2019-05-07T19:18:18Z"
+		},
+		{
+			"checksumSHA1": "ATnwV0POluBNQEMjPdylodz0oK0=",
+			"path": "github.com/lib/pq/oid",
+			"revision": "2ff3cb3adc01768e0a552b3a02575a6df38a9bea",
+			"revisionTime": "2019-05-07T19:18:18Z"
+		},
+		{
+			"checksumSHA1": "ywel3wHXnu1eLhyT1/FolporeAc=",
+			"path": "github.com/lib/pq/scram",
+			"revision": "2ff3cb3adc01768e0a552b3a02575a6df38a9bea",
+			"revisionTime": "2019-05-07T19:18:18Z"
+		},
+		{
+			"checksumSHA1": "74gCzvJiE6bXX3i4vIVCYhffDHc=",
+			"path": "github.com/mattn/go-isatty",
+			"revision": "1311e847b0cb909da63b5fecfb5370aa66236465",
+			"revisionTime": "2019-05-22T01:25:13Z"
+		},
+		{
+			"checksumSHA1": "BfdDswbb2FP44Iq7WD/nqLev7uk=",
+			"path": "github.com/ugorji/go/codec",
+			"revision": "02994ffebd8e7ef482130d13b570c8be0968b790",
+			"revisionTime": "2019-07-05T23:50:43Z"
+		},
+		{
+			"checksumSHA1": "XvpxZHbsbb3yjJLgz8xjmVGZEVo=",
+			"path": "golang.org/x/sys/unix",
+			"revision": "c5567b49c5d04a5f83870795b8c0e2df43a8ce32",
+			"revisionTime": "2019-06-24T11:44:31Z"
+		},
+		{
+			"checksumSHA1": "P/k5ZGf0lEBgpKgkwy++F7K1PSg=",
+			"path": "gopkg.in/go-playground/validator.v8",
+			"revision": "5f1438d3fca68893a817e4a66806cea46a9e4ebf",
+			"revisionTime": "2017-07-30T05:02:35Z"
+		},
+		{
+			"checksumSHA1": "QqDq2x8XOU7IoOR98Cx1eiV5QY8=",
+			"path": "gopkg.in/yaml.v2",
+			"revision": "51d6538a90f86fe93ac480b35f37b2be17fef232",
+			"revisionTime": "2018-11-15T11:05:04Z"
+		}
+	],
+	"rootPath": "todoAPI"
+}
