@@ -94,7 +94,6 @@ func FetchSingleTask(c *gin.Context) {
 func UpdateTask(c *gin.Context) {
 	todoID := c.Param("id")
 
-	// Check id from parameter is correct
 	if len(todoID) <= 0 {
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid user id"})
 		return
