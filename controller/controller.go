@@ -62,7 +62,7 @@ func FetchAllTask(c *gin.Context) {
 	}
 
 	var todos []model.Task
-	config.GetDB().Where("user_id = ?", user.ID).Find(&todos)
+	config.GetDB().Where("user_id = ?", user.ID).Order("created_at desc").Find(&todos)
 
 	if len(todos) <= 0 {
 		c.JSON(http.StatusNotFound, gin.H{"message": "No tasks found!", "data": todos})
