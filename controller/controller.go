@@ -1,11 +1,11 @@
 package controller
 
 import (
-	jwt "github.com/appleboy/gin-jwt"
+	jwtapple2 "github.com/appleboy/gin-jwt/v2"
+	"github.com/calo001/todoAPI/config"
+	"github.com/calo001/todoAPI/model"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"todoAPI/config"
-	"todoAPI/model"
 )
 
 func RegisterEndPoint(c *gin.Context) {
@@ -29,7 +29,7 @@ func RegisterEndPoint(c *gin.Context) {
 }
 
 func CreateTask(c *gin.Context) {
-	claims := jwt.ExtractClaims(c)
+	claims := jwtapple2.ExtractClaims(c)
 
 	var user model.User
 	config.GetDB().Where("id = ?", claims[config.IdentityKey]).First(&user)
@@ -50,8 +50,24 @@ func CreateTask(c *gin.Context) {
 	c.JSON(http.StatusCreated, gin.H{"message": "Task created successfully!", "task": todo})
 }
 
+/*func ExtractClaims(c *gin.Context) (jwtapple2.MapClaims, bool) {
+	claims, exists := c.Get("JWT_PAYLOAD")
+	if !exists {
+		return make(jwtapple2.MapClaims), true
+	}
+
+	v, ok := claims.(jwtapple2.MapClaims)
+	return v, ok
+}*/
+
 func FetchAllTask(c *gin.Context) {
-	claims := jwt.ExtractClaims(c)
+	//claims, ok := ExtractClaims(c)
+	claims := jwtapple2.ExtractClaims(c)
+
+	//if !ok {
+	//	c.JSON(http.StatusInternalServerError, gin.H{"error": "Internal server error"})
+	//	return
+	//}
 
 	var user model.User
 	config.GetDB().Where("id = ?", claims[config.IdentityKey]).First(&user)

@@ -1,11 +1,11 @@
 package route
 
 import (
+	"github.com/calo001/todoAPI/auth"
+	"github.com/calo001/todoAPI/controller"
 	"github.com/gin-gonic/gin"
 	"log"
 	"net/http"
-	"todoAPI/auth"
-	"todoAPI/controller"
 )
 
 func SetupRoutes() *gin.Engine{

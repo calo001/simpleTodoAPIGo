@@ -1,8 +1,8 @@
 package migration
 
 import (
+	"github.com/calo001/todoAPI/model"
 	"github.com/jinzhu/gorm"
-	"todoAPI/model"
 )
 
 func Migrate(db *gorm.DB) {

@@ -1,18 +1,18 @@
 package auth
 
 import (
-	jwt "github.com/appleboy/gin-jwt"
+	jwtapple2 "github.com/appleboy/gin-jwt/v2"
+	"github.com/calo001/todoAPI/config"
+	"github.com/calo001/todoAPI/model"
 	"github.com/gin-gonic/gin"
 	"time"
-	"todoAPI/config"
-	"todoAPI/model"
 )
 
-func SetupAuth() (*jwt.GinJWTMiddleware, error){
+func SetupAuth() (*jwtapple2.GinJWTMiddleware, error){
 	/*
 	 * The JWT middleware authentication
 	 */
-	authMiddleware, err := jwt.New(&jwt.GinJWTMiddleware{
+	authMiddleware, err := jwtapple2.New(&jwtapple2.GinJWTMiddleware{
 		Realm:       	"	apitodogo", // https://tools.ietf.org/html/rfc7235#section-2.2
 		Key:         		[]byte(config.Key),
 		Timeout:     		time.Hour*24,
@@ -24,7 +24,7 @@ func SetupAuth() (*jwt.GinJWTMiddleware, error){
 		Authorizator: 		authorizator,
 		Unauthorized: 		unauthorized,
 		LoginResponse: 		loginResponse,
-		TokenLookup:   		"header: Authorization, query: token, cookie: jwt",
+		TokenLookup:   		"header: Authorization, query: token, cookie: jwtapple2",
 		TokenHeadName: 		"Bearer",
 		TimeFunc:      		time.Now,
 	})
@@ -32,17 +32,18 @@ func SetupAuth() (*jwt.GinJWTMiddleware, error){
 	return authMiddleware, err
 }
 
-func payload (data interface{}) jwt.MapClaims {
+func payload (data interface{}) jwtapple2.MapClaims {
+
 	if v, ok := data.(*model.User); ok {
-		return jwt.MapClaims{
+		return jwtapple2.MapClaims {
 			config.IdentityKey: v.ID,
 		}
 	}
-	return jwt.MapClaims{}
+	return jwtapple2.MapClaims{}
 }
 
 func identityHandler (c *gin.Context) interface{} {
-	claims := jwt.ExtractClaims(c)
+	claims := jwtapple2.ExtractClaims(c)
 	var user model.User
 	config.GetDB().Where("id = ?", claims[config.IdentityKey]).First(&user)
 
@@ -52,14 +53,14 @@ func identityHandler (c *gin.Context) interface{} {
 func authenticator (c *gin.Context) (interface{}, error) {
 	var loginVals model.User
 	if err := c.ShouldBind(&loginVals); err != nil {
-		return "", jwt.ErrMissingLoginValues
+		return "", jwtapple2.ErrMissingLoginValues
 	}
 
 	var result model.User
 	config.GetDB().Where("username = ? AND password = ?", loginVals.Username, loginVals.Password).First(&result)
 
 	if result.ID == 0 {
-		return nil, jwt.ErrFailedAuthentication
+		return nil, jwtapple2.ErrFailedAuthentication
 	}
 
 	return &result, nil
