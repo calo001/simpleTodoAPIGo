@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func SetupRoutes() *gin.Engine{
+func SetupRoutes() *gin.Engine {
 	router := gin.Default()
 	authMiddleware, err := auth.SetupAuth()
 
@@ -22,7 +22,6 @@ func SetupRoutes() *gin.Engine{
 
 	v1 := router.Group("/v1")
 	{
-		//v1.POST("/login", loginEndPoint)
 		v1.POST("/login", authMiddleware.LoginHandler)
 
 		v1.POST("/register", controller.RegisterEndPoint)

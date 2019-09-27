@@ -50,24 +50,8 @@ func CreateTask(c *gin.Context) {
 	c.JSON(http.StatusCreated, gin.H{"message": "Task created successfully!", "task": todo})
 }
 
-/*func ExtractClaims(c *gin.Context) (jwtapple2.MapClaims, bool) {
-	claims, exists := c.Get("JWT_PAYLOAD")
-	if !exists {
-		return make(jwtapple2.MapClaims), true
-	}
-
-	v, ok := claims.(jwtapple2.MapClaims)
-	return v, ok
-}*/
-
 func FetchAllTask(c *gin.Context) {
-	//claims, ok := ExtractClaims(c)
 	claims := jwtapple2.ExtractClaims(c)
-
-	//if !ok {
-	//	c.JSON(http.StatusInternalServerError, gin.H{"error": "Internal server error"})
-	//	return
-	//}
 
 	var user model.User
 	config.GetDB().Where("id = ?", claims[config.IdentityKey]).First(&user)
@@ -92,7 +76,7 @@ func FetchSingleTask(c *gin.Context) {
 	todoID := c.Param("id")
 
 	if len(todoID) <= 0 {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid user id"})
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid todo id"})
 		return
 	}
 
@@ -156,6 +140,3 @@ func DeleteTask(c *gin.Context) {
 	config.GetDB().Delete(&todo)
 	c.JSON(http.StatusOK, gin.H{"message": "Task deleted successfully!", "task": todo})
 }
-
-
-

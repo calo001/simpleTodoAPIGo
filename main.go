@@ -5,7 +5,6 @@ import (
 	"github.com/calo001/todoAPI/migration"
 	"github.com/calo001/todoAPI/route"
 	"github.com/gin-gonic/gin"
-	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"log"
 	"os"
 )
